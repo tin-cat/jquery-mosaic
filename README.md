@@ -9,4 +9,4 @@ Here's a bonus (NSFW) working site using jQuery mosaic: https://skinography.net
 jQuery Mosaic is released under the MIT License, meaning you can do with it whatever you want, even for commercial and obscure purposes. A credit somewhere would be appreciated, though!
 
 ### Please ###
-Please don't se jQuery Mosaic to show photos of animal abuse. Seriously.
+Please don't use jQuery Mosaic to show photos of animal abuse. Seriously.
