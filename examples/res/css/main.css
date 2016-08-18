@@ -1,0 +1,187 @@
+body {
+	margin: 0;
+	background-color: #111;
+	font-family: Georgia, Serif;
+	font-size: 13pt;
+	color: #fff;
+}
+
+h1, h2, h3, h4 {
+	font-style: italic;
+	font-weight: normal;
+}
+
+header {
+	font-size: 30pt;
+	font-style: italic;
+	text-align: center;
+	padding: 20pt;
+}
+
+header h2 {
+	font-size: 20pt;
+}
+
+header h3 {
+	font-size: 14pt;
+}
+
+a {
+	color: #f72;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.content {
+	padding: 40pt;
+}
+
+ul.examples {
+	float: left;
+	margin: 40pt 0;
+	list-style-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 469.184 469.185" style="enable-background:new 0 0 469.184 469.185;" xml:space="preserve"><g>	<path d="M462.5,96.193l-21.726-21.726c-8.951-8.95-23.562-8.95-32.59,0L180.368,302.361l-119.34-119.34   c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62   c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z" fill="#FFFFFF"/></g></svg>');
+}
+
+ul.examples > li > .title {
+	font-size: 15pt;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.button {
+	display: inline-block;
+	font-family: 'Courier New', Courier;
+	font-size: 10pt;
+	color: #fff;
+	background: #e40;
+	padding: 5pt 8pt;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button:hover {
+	color: #fff;
+	background: #f51;
+	text-decoration: none;
+}
+
+#exampleContent {
+	padding-top: 50px;
+}
+
+#bar {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	height: 50px;
+	background: #333;
+	padding: 0 13pt;
+	z-index: 10;
+}
+
+#bar > .title {
+	line-height: 50px;
+	font-style: italic;
+}
+
+#bar > .buttons {
+	float: right;
+}
+
+#bar > .buttons > .button {
+	margin: 11px 0 0 11px;
+}
+
+#source {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 11;
+}
+
+#source > .background {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 11;
+}
+
+#source > .close {
+	position: absolute;
+	bottom: 20px;
+	left: calc(50% - 40px);
+}
+
+#source > iframe {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: #fff;
+	z-index: 12;
+}
+
+.love {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-size: 18px;
+	background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="Heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 viewBox="0 0 57.947 57.947" style="enable-background:new 0 0 57.947 57.947;" xml:space="preserve"><g>	<path style="fill:#E64C3C;" d="M28.947,56.486c15.685-11.277,23.532-21.592,27.222-29.46c4.311-9.193,0.561-20.589-8.845-24.413		C36.268-1.88,28.947,8.486,28.947,8.486S21.678-1.907,10.623,2.588C1.217,6.412-2.533,17.808,1.778,27.001		C5.468,34.868,13.262,45.21,28.947,56.486z"/></g></svg>');
+}
+
+.example_div {
+	position: relative;
+}
+
+.example_div.stripe {
+	background-color: #f72;
+	background: repeating-linear-gradient(
+	  -45deg,
+	  rgba(0, 0, 0, 0.05),
+	  rgba(0, 0, 0, 0.05) 10px,
+	  transparent 10px,
+	  transparent 20px
+	);
+}
+
+.example_div > .number {
+	position: absolute;
+
+	left: 50%;
+	top: 50%;
+
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+	color: #fff;
+	font-family: 'Courier New';
+	font-size: 40pt;
+}
+
+.mosaic > .item.withImage.highRes:after {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	float: left;
+	content: 'Using high res version';
+	text-transform: uppercase;
+	background: #f72;
+	font-family: Courier;
+	color: #fff;
+	font-size: 12px;
+	padding: 10px;
+}
