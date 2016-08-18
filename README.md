@@ -1,5 +1,5 @@
 # jquery-mosaic
-See it working and examples running here: http://jquery-mosaic.lenny.tin.cat/
+See it working and examples running here: http://jquery-mosaic.tin.cat
 
 A jQuery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size.
 
