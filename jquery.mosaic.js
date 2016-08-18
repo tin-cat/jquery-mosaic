@@ -56,7 +56,7 @@
 
         base.getItemAspectRatio = function(item) {
             if ($(item).data('aspect-ratio'))
-                $(item).data('aspect-ratio');
+                return $(item).data('aspect-ratio');
             if ($(item).attr('width') && $(item).attr('height'))
                 return $(item).attr('width') / $(item).attr('height');
             return o.defaultAspectRatio;
