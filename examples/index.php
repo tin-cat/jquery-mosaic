@@ -57,7 +57,7 @@
 					")."</blockquote>
 				</li>
 				<li>
-					Create a DIV with an id and place your contents inside. Each DIV, A or IMG you place there will be considered as a piece of the mosaic
+					Create a DIV with an id and place your contents inside. Each DIV, A or IMG you place there will be considered as a piece of the mosaic.
 					<blockquote class=\"code html\">".formatHtml("
 <div id=\"myMosaic\">
 	<img src=\"image1.jpg\" width=\"400\" height=\"350\" />
@@ -280,7 +280,7 @@ $('#myMosaic').Mosaic({
 		"title" => "jQuery Mosaic plugin",
 		"header" => "jQuery Mosaic plugin",
 		"headerSubtitle" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a> · download on <a href=\"https://github.com/tin-cat/jquery-mosaic\">Github</a> · see <a href=\"#examples\">examples</a>",
-		"headerSubSubtitle" => "A free plugin for jQuery to build wonderful and responsive mosaics of images or anything else",
+		"headerSubSubtitle" => "Builds responsive mosaics of images or any other content fitted to match heights in multiple rows while maintaining aspect ratios",
 		"footer" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a>",
 		"mosaic" => $mosaic,
 		"content" => $content
