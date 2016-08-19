@@ -42,7 +42,7 @@
 					Download the <a href=\"https://github.com/tin-cat/jquery-mosaic\">jQuery Mosaic plugin</a>
 				</li>
 				<li>
-					Include the jQuery library and the <i>jquery.mosaic.js</i> and <i>jquery.mosaic.css</i> filed from the jQuery Mosaic download in your head section.
+					Include the jQuery library and the <i>jquery.mosaic.js</i> + <i>jquery.mosaic.css</i> files from the jQuery Mosaic download in your head section.
 					<blockquote class=\"code html\">".formatHtml("
 <html>
 <head>
