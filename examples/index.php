@@ -122,7 +122,7 @@
 				</li>
 				<li>
 					<div class=\"name\">highResImagesWidthThreshold</div>
-					<div class=\"description\">When set to a width, item &gt;div&lt;s or &gt;a&lt;s or &gt;img&lt;s wider than this will be given a higher resolution background image (if specified on html div property data-high-res-background-image-url) or image src (if specified on html img property data-high-res-image-src)</div>
+					<div class=\"description\">The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the \"data-high-res-image-src\" or \"data-high-res-background-image-url\" html element properties of each item.</div>
 					<div class=\"default\">350</div>
 				</li>
 			</ul>

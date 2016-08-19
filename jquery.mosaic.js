@@ -219,7 +219,7 @@
         refitOnResizeDelay: false, // Milliseconds to wait after a resize event to refit the mosaic. Useful when creating huge mosaics that can take some CPU time on the user's browser. Leave it to false to refit the mosaic in realtime.
         defaultAspectRatio: 1, // The aspect ratio to use when none has been specified, or can't be calculated
         maxRowHeightPolicy: 'skip', // Sometimes some of the remaining items cannot be fitted on a row without surpassing the maxRowHeight. For those cases, choose one of the available settings for maxRowHeightPolicy: "skip": Does not renders the unfitting items. "crop": caps the desired height to the specified maxRowHeight, resulting in those items not keeping their aspect ratios. "oversize": Renders the items respecting their aspect ratio but surpassing the specified maxRowHeight
-        highResImagesWidthThreshold: 350 // When set to a width, item <div>s or <a>s or <img>s wider than this will be given a higher resolution background image (if specified on html div property data-high-res-background-image-url) or image src (if specified on html img property data-high-res-image-src)
+        highResImagesWidthThreshold: 350 // The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the "data-high-res-image-src" or "data-high-res-background-image-url" html element properties of each item.
     };
 
     $.fn.Mosaic = function(options, params) {
