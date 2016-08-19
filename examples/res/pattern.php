@@ -10,9 +10,11 @@
 
 <?= $header ? "<header>$header".($headerSubtitle ? "<h2>$headerSubtitle</h2>" : null)."".($headerSubSubtitle ? "<h3>$headerSubSubtitle</h3>" : null)."</header>" : null ?>
 
-<?= $mosaic ? "$mosaic" : null ?>
+<?= $mosaic ? $mosaic : null ?>
 
-<?= $content ? "<div class=\"content\">$content</div>" : null ?>
+<?= $content ? $content : null ?>
+
+<?= $footer ? "<div class=\"footer\">$footer</div>" : null ?>
 
 </body>
 </html>

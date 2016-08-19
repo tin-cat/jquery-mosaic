@@ -51,3 +51,11 @@ function getImageFiles($dir, $limit = false) {
 
     return $images;
 }
+
+function formatHtml($code) {
+	$code = trim($code);
+	$code = str_replace("\t", "    ", $code);
+	$code = htmlspecialchars($code);
+	$code = str_replace("...", "<span class=\"ellipsis\">...</span>", $code);
+	return $code;
+}

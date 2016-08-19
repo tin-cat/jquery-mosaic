@@ -1,5 +1,5 @@
 /*
-     Mosaic v0.1
+     Mosaic v0.11
      https://github.com/tin-cat/jquery-mosaic
      A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -14,6 +14,7 @@
         base.$el.data('Mosaic', base);
 
         var baseWidth;
+        var refitTimeout = false;
 
         base.init = function() {
             base.options = o = $.extend({}, $.Mosaic.defaults, options);
@@ -23,7 +24,17 @@
             base.fit();
 
             if (o.refitOnResize)
-                $(window).on('resize', null, null, function() { base.fit() });
+                $(window).on('resize', null, null, function() {
+                    if (o.refitOnResizeDelay) {
+                        if (refitTimeout)
+                            clearTimeout(refitTimeout);
+                        refitTimeout = setTimeout(function() {
+                            base.fit()
+                        }, o.refitOnResizeDelay);
+                    }
+                    else
+                        base.fit()
+                });
 		}
 
         base.getItems = function() {
@@ -178,6 +189,7 @@
             if (height > o.maxRowHeight) {
                 switch (o.maxRowHeightPolicy) {
                     case 'skip':
+                        items.each(function() { $(this).hide(); });
                         return;
                         break;
                     case 'crop':
@@ -188,6 +200,7 @@
                         break;
                 }
             }
+            items.each(function() { $(this).show(); });
             var accumulatedWidth = 0;
             items.each(function() {
                 accumulatedWidth += base.setItemSizeByGivenHeight(this, height);
@@ -203,8 +216,9 @@
     $.Mosaic.defaults = {
         maxRowHeight: 400, // The maximum desired height of rows
         refitOnResize: true, // Whether to rebuild the mosaic when the window is resized or not
+        refitOnResizeDelay: false, // Milliseconds to wait after a resize event to refit the mosaic. Useful when creating huge mosaics that can take some CPU time on the user's browser. Leave it to false to refit the mosaic in realtime.
         defaultAspectRatio: 1, // The aspect ratio to use when none has been specified, or can't be calculated
-        maxRowHeightPolicy: 'oversize', // Sometimes some of the remaining items cannot be fitted on a row without surpassing the maxRowHeight. For those cases, choose one of the available settings for maxRowHeightPolicy: "skip": Does not renders the unfitting items. "crop": caps the desired height to the specified maxRowHeight, resulting in those items not keeping their aspect ratios. "oversize": Renders the items respecting their aspect ratio but surpassing the specified maxRowHeight
+        maxRowHeightPolicy: 'skip', // Sometimes some of the remaining items cannot be fitted on a row without surpassing the maxRowHeight. For those cases, choose one of the available settings for maxRowHeightPolicy: "skip": Does not renders the unfitting items. "crop": caps the desired height to the specified maxRowHeight, resulting in those items not keeping their aspect ratios. "oversize": Renders the items respecting their aspect ratio but surpassing the specified maxRowHeight
         highResImagesWidthThreshold: 350 // When set to a width, item <div>s or <a>s or <img>s wider than this will be given a higher resolution background image (if specified on html div property data-high-res-background-image-url) or image src (if specified on html img property data-high-res-image-src)
     };
 

@@ -3,6 +3,7 @@ body {
 	background-color: #111;
 	font-family: Georgia, Serif;
 	font-size: 13pt;
+	line-height: 1.2em;
 	color: #fff;
 }
 
@@ -13,6 +14,7 @@ h1, h2, h3, h4 {
 
 header {
 	font-size: 30pt;
+	line-height: 1em;
 	font-style: italic;
 	text-align: center;
 	padding: 20pt;
@@ -20,10 +22,21 @@ header {
 
 header h2 {
 	font-size: 20pt;
+	line-height: 1em;
 }
 
 header h3 {
 	font-size: 14pt;
+	line-height: 1em;
+}
+
+hr {
+	float: left;
+	width: 100%;
+	margin: 40pt 0;
+	border: none;
+	border-bottom: solid #fff 1px;
+	height: 1px;
 }
 
 a {
@@ -36,19 +49,100 @@ a:hover {
 }
 
 .content {
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
 	padding: 40pt;
 }
 
-ul.examples {
+.footer {
 	float: left;
-	margin: 40pt 0;
-	list-style-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 469.184 469.185" style="enable-background:new 0 0 469.184 469.185;" xml:space="preserve"><g>	<path d="M462.5,96.193l-21.726-21.726c-8.951-8.95-23.562-8.95-32.59,0L180.368,302.361l-119.34-119.34   c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62   c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z" fill="#FFFFFF"/></g></svg>');
+	width: 100%;
+	border-top: solid #fff 1px;
+	text-align: center;
+	margin-top: 40pt;
+	padding: 40pt;
+
+	font-style: italic;
+	font-weight: normal;
+	font-size: 14pt;
+	line-height: 1em;
 }
 
-ul.examples > li > .title {
+ul.fancy {
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.fancy > li {
+	background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 469.184 469.185" style="enable-background:new 0 0 469.184 469.185;" xml:space="preserve"><g>	<path d="M462.5,96.193l-21.726-21.726c-8.951-8.95-23.562-8.95-32.59,0L180.368,302.361l-119.34-119.34   c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62   c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z" fill="#FFFFFF"/></g></svg>');
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	padding-left: 30px;
+
+	margin-bottom: 20pt;
+}
+
+ul.fancy > li > .title {
+	display: block;
 	font-size: 15pt;
 	font-weight: bold;
 	font-style: italic;
+	margin-bottom: 5pt;
+}
+
+ul.options {
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.options > li {
+	background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="iso-8859-1"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56 56" style="enable-background:new 0 0 56 56;" xml:space="preserve" width="23px" height="23px"><g>	<path d="M28,0C12.561,0,0,12.561,0,28s12.561,28,28,28s28-12.561,28-28S43.439,0,28,0z M28,54C13.663,54,2,42.336,2,28   S13.663,2,28,2s26,11.664,26,26S42.337,54,28,54z" fill="#FFFFFF"/>	<path d="M40,16H16c-0.553,0-1,0.448-1,1s0.447,1,1,1h24c0.553,0,1-0.448,1-1S40.553,16,40,16z" fill="#FFFFFF"/>	<path d="M40,27H16c-0.553,0-1,0.448-1,1s0.447,1,1,1h24c0.553,0,1-0.448,1-1S40.553,27,40,27z" fill="#FFFFFF"/>	<path d="M40,38H16c-0.553,0-1,0.448-1,1s0.447,1,1,1h24c0.553,0,1-0.448,1-1S40.553,38,40,38z" fill="#FFFFFF"/></g></svg>');
+	background-size: 24px;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	padding-left: 30px;
+
+	margin-bottom: 20pt;
+}
+
+ul.options > li > .name {
+	display: block;
+	font-family: Courier;
+	font-size: 14pt;
+	margin-bottom: 5pt;
+	color: #f72;
+	line-height: 24px;
+}
+
+ul.options > li > .description {
+	margin-bottom: 5pt;
+}
+
+ul.options > li ul {
+	margin: 10pt; 0;
+}
+
+ul.options > li ul > li b {
+	font-family: Courier;
+	font-weight: normal;
+	color: #f72;
+}
+
+ul.options > li > .default {
+
+}
+
+ul.options > li > .default:before {
+	content: 'default: ';
+	color: #777;
 }
 
 .button {
@@ -68,6 +162,31 @@ ul.examples > li > .title {
 	text-decoration: none;
 }
 
+blockquote.code {
+	background: #222;
+	padding: 20pt;
+	margin: 20pt 0;
+	font-family: 'Courier';
+	font-size: 12pt;
+	white-space: pre;
+	color: #d6ec85;
+	overflow-x: auto;
+}
+
+blockquote.code.html,
+blockquote.code .html {
+	color: #4fd7f9;
+}
+
+blockquote.code.javascript,
+blockquote.code .javascript {
+	color: #e3e66e;
+}
+
+blockquote.code .ellipsis {
+	color: #888;
+}
+
 #exampleContent {
 	padding-top: 50px;
 }
@@ -78,8 +197,8 @@ ul.examples > li > .title {
 	right: 0px;
 	left: 0px;
 	height: 50px;
-	background: #333;
-	padding: 0 13pt;
+	background: #222;
+	padding: 0 10pt;
 	z-index: 10;
 }
 
@@ -93,7 +212,7 @@ ul.examples > li > .title {
 }
 
 #bar > .buttons > .button {
-	margin: 11px 0 0 11px;
+	margin: 9px 0 0 9px;
 }
 
 #source {
@@ -120,6 +239,7 @@ ul.examples > li > .title {
 	position: absolute;
 	bottom: 20px;
 	left: calc(50% - 40px);
+	z-index: 12;
 }
 
 #source > iframe {
