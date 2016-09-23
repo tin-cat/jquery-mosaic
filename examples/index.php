@@ -21,6 +21,7 @@
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
+			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>Now with more gaps!</div>\n".
 			"$items".
 		"</div>\n".
 		"\n".
@@ -28,7 +29,8 @@
 		"	$('#mosaic').Mosaic({\n".
 		"		maxRowHeight: 400,\n".
 		"		highResImagesWidthThreshold: 640,\n".
-		"		maxRowHeightPolicy: 'skip'\n".
+		"		maxRowHeightPolicy: 'skip',\n".
+		"		innerGap: 15\n".
 		"	});\n".
 		"</script>\n";
 
@@ -124,6 +126,16 @@
 					<div class=\"name\">highResImagesWidthThreshold</div>
 					<div class=\"description\">The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the \"data-high-res-image-src\" or \"data-high-res-background-image-url\" html element properties of each item.</div>
 					<div class=\"default\">350</div>
+				</li>
+				<li>
+					<div class=\"name\">outerMargin</div>
+					<div class=\"description\">A margin size in pixels for the outher edge of the whole mosaic.</div>
+					<div class=\"default\">0</div>
+				</li>
+				<li>
+					<div class=\"name\">innerGap</div>
+					<div class=\"description\">A gap size in pixels to leave a space between elements.</div>
+					<div class=\"default\">0</div>
 				</li>
 			</ul>
 			<p>For example:</p>
@@ -258,6 +270,11 @@ $('#myMosaic').Mosaic({
 			"title" => "High resolution images example",
 			"description" => "jQuery Mosaic can switch to a higher resolution file when needed to keep images crisp.",
 			"link" => "example_high_resolution.php"
+		],
+		[
+			"title" => "Example with margins",
+			"description" => "You can specify an outer margin for the whole mosaic and an inner gap to leave an empty space between mosaic items independently.",
+			"link" => "example_margins.php"
 		],
 		[
 			"title" => "See a real application",

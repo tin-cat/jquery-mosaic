@@ -27,7 +27,7 @@ header h2 {
 
 header h3 {
 	font-size: 14pt;
-	line-height: 1em;
+	line-height: 1.3em;
 }
 
 hr {
@@ -61,7 +61,7 @@ a:hover {
 	border-top: solid #fff 1px;
 	text-align: center;
 	margin-top: 40pt;
-	padding: 40pt;
+	padding: 40pt 0;
 
 	font-style: italic;
 	font-weight: normal;
@@ -304,4 +304,86 @@ blockquote.code .ellipsis {
 	color: #fff;
 	font-size: 12px;
 	padding: 10px;
+}
+
+.mosaic {
+	position: relative;
+	overflow: visible !important;
+}
+
+.mosaic > .ribbon {
+	position: absolute;
+	padding: 40px 20px 25px 20px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	left: calc(50% - 80px);
+	top: -20px;
+	width: 175px;
+	text-align: center;
+	font-size: 20pt;
+	font-style: italic;
+	line-height: 1em;
+	color: #fff;
+
+	background: rgb(255,142,208);
+	background: -moz-linear-gradient(top, rgba(255,142,208,1) 0%, rgba(255,142,208,1) 10px, rgba(245,0,145,1) 40px);
+	background: -webkit-linear-gradient(top, rgba(255,142,208,1) 0%, rgba(255,142,208,1) 10px, rgba(245,0,145,1) 40px);
+	background: linear-gradient(to bottom, rgba(255,142,208,1) 0%, rgba(255,142,208,1) 10px, rgba(245,0,145,1) 40px);
+
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.mosaic > .ribbon > .curl {
+	position: absolute;
+	content: '';
+	right: 100%;
+	top: 0px;
+
+	width: 20px;
+	height: 20px;
+
+	background-color: rgba(155,42,108,1);
+
+	background: -moz-linear-gradient(top, rgba(155,42,108,1) 0%, rgba(75,0,25,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(155,42,108,1) 0%, rgba(75,0,25,1) 100%);
+	background: linear-gradient(to bottom, rgba(155,42,108,1) 0%, rgba(75,0,25,1) 100%);
+
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+	
+}
+
+.mosaic > .ribbon > .curl:before {
+	position: absolute;
+	content: '';
+	top: 0px;
+	right: 0px;
+	width: 10px;
+	height: 20px;
+	background-color: rgba(255,142,208,1);
+	z-index: -1;
+}
+
+.mosaic > .ribbon:after {
+	position: absolute;
+	content: '';
+	top: 100%;
+	left: 0px;
+	right: 0px;
+	
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 20px 175px 0 0;
+	border-color: #f50091 transparent transparent transparent;
 }
