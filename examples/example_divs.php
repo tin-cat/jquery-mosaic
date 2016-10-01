@@ -23,7 +23,9 @@
 		"</div>\n".
 		"\n".
 		"<script>\n".
-		"	$('#mosaic').Mosaic();\n".
+        "   $(function() {\n".
+		"	    $('#mosaic').Mosaic();\n".
+        "   });\n".
 		"</script>\n";
 
 	pattern([

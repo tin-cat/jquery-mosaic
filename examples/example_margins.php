@@ -22,9 +22,11 @@
 		"</div>\n".
 		"\n".
 		"<script>\n".
-		"	$('#mosaic').Mosaic({\n".
-		"		innerGap: 30\n".
-		"	});\n".
+		"   $(function() {\n".
+		"		$('#mosaic').Mosaic({\n".
+		"			innerGap: 30\n".
+		"		});\n".
+		"   });\n".
 		"</script>\n";
 
 	pattern([

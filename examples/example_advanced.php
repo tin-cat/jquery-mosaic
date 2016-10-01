@@ -35,9 +35,11 @@
 		"</div>\n".
 		"\n".
 		"<script>\n".
-		"	$('#mosaic').Mosaic({\n".
-		"		maxRowHeight: 800\n".
-		"	});\n".
+        "   $(function() {\n".
+		"	    $('#mosaic').Mosaic({\n".
+		"		   maxRowHeight: 800\n".
+		"	    });\n".
+        "   });\n".
 		"</script>\n";
 
 	pattern([
