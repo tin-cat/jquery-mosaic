@@ -26,11 +26,13 @@
 		"</div>\n".
 		"\n".
 		"<script>\n".
-		"	$('#mosaic').Mosaic({\n".
-		"		maxRowHeight: 400,\n".
-		"		highResImagesWidthThreshold: 640,\n".
-		"		maxRowHeightPolicy: 'skip',\n".
-		"		innerGap: 15\n".
+		"   $(function() {\n".
+		"		$('#mosaic').Mosaic({\n".
+		"			maxRowHeight: 400,\n".
+		"			highResImagesWidthThreshold: 640,\n".
+		"			maxRowHeightPolicy: 'skip',\n".
+		"			innerGap: 15\n".
+		"		});\n".
 		"	});\n".
 		"</script>\n";
 
