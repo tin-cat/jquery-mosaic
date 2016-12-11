@@ -243,7 +243,8 @@
             // Enlarge a bit the last element to compensate for accumulated floored decimal widths leaving a gap at the end
             if (accumulatedWidth < baseWidth) {
                 difference = (baseWidth - ((items.length - 1) * o.innerGap)) - accumulatedWidth;
-                items.last().width(items.last().width() + difference);
+                if (difference > 1)
+                    items.last().width(items.last().width() + difference - 1);
             }
         }
 
