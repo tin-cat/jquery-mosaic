@@ -49,7 +49,7 @@
                     else
                         base.fit()
                 });
-		}
+        }
 
         base.getItems = function() {
             return $('> div:not([data-no-mosaic=true]), > a:not([data-no-mosaic=true]), > img:not([data-no-mosaic=true])', base.el);
@@ -115,8 +115,8 @@
         base.setItemSizeByGivenHeight = function(item, height) {
             var width = Math.floor(base.getItemWidthForGivenHeight(item, height));
             $(item)
-                .css('height', Math.floor(height))
-                .css('width', width);
+                .css('height', Math.floor(height) + 'px')
+                .css('width', width + 'px');
 
             if (o.highResImagesWidthThreshold) {
 
@@ -240,11 +240,11 @@
                     $(this).css('margin-bottom', o.innerGap);
                 }
             });
-            // Enlarge a bit the last element to compensate for accumulated floored decimal widths leaving a gap at the end
-            if (accumulatedWidth < baseWidth) {
+            // Compensate the last element to compensate for accumulated floored decimal widths leaving a gap at the end
+            if (accumulatedWidth != (baseWidth - ((items.length - 1) * o.innerGap))) {
                 difference = (baseWidth - ((items.length - 1) * o.innerGap)) - accumulatedWidth;
-                if (difference > 1)
-                    items.last().width(items.last().width() + difference - 1);
+                var width = items.last().width();
+                items.last().width(width + difference);
             }
         }
 
@@ -267,8 +267,8 @@
             var me = $(this).data('Mosaic');
             if ((typeof(options)).match('object|undefined'))
                 new $.Mosaic(this, options);
-			else
-				eval('me.'+options)(params);
+            else
+                eval('me.'+options)(params);
         });
     }
 

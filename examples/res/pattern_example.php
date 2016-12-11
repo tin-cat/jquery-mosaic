@@ -2,8 +2,8 @@
 <head>
 	<title><?= $title ? $title : "jquery-mosaic plugin example" ?></title><!-- omitOnExampleSource -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="jquery.mosaic.css"/>
-	<script type="text/javascript" src="jquery.mosaic.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.mosaic.css?v=3"/>
+	<script type="text/javascript" src="jquery.mosaic.js?v=3"></script>
 	<link rel="stylesheet" type="text/css" href="res/css/main.css"/><!-- omitOnExampleSource -->
 	<script type="text/javascript" src="res/js/main.js"></script><!-- omitOnExampleSource -->
 </head>
