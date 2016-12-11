@@ -1,5 +1,5 @@
 /*
-     jQuery Mosaic v0.12
+     jQuery Mosaic v0.13
      https://github.com/tin-cat/jquery-mosaic
      A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -26,6 +26,14 @@
 
             if (o.innerGap)
                 $(base.el).css('margin-bottom', o.innerGap * -1);
+
+            // If width and height are specified via attribute, set width and height as css properties to solve weird IE problem.
+            base.getItems().each(function(idx, item) {
+                if ($(item).attr('width'))
+                    $(item).css('width', $(item).attr('width'));
+                if ($(item).attr('height'))
+                    $(item).css('height', $(item).attr('height'));
+            });
             
             base.fit();
 
@@ -72,11 +80,17 @@
         }
 
         base.getItemWidth = function(item) {
-            return $(item).attr('width');
+            if ($(item).outerWidth())
+                return $(item).outerWidth();
+            if ($(item).attr('width'))
+                return $(item).attr('width');
         }
 
         base.getItemHeight = function(item) {
-            return $(item).attr('height');
+            if ($(item).outerHeight())
+                return $(item).outerHeight();
+            if ($(item).attr('height'))
+                return $(item).attr('height');
         }
 
         base.getItemAspectRatio = function(item) {
@@ -159,7 +173,7 @@
         }
 
         base.retrieveBaseWidth = function() {
-            baseWidth = $(base.el).width();
+            baseWidth = Math.floor($(base.el).width());
         }
 
         base.fit = function() {
@@ -217,17 +231,17 @@
             items.each(function() { $(this).show(); });
             var accumulatedWidth = 0;
             items.each(function(idx) {
-                accumulatedWidth += base.setItemSizeByGivenHeight(this, height);
+                 accumulatedWidth += base.setItemSizeByGivenHeight(this, height);
                 if (o.innerGap) {
                     $(this).css('margin-right', idx < items.length - 1 ? o.innerGap : 0);
                     $(this).css('margin-bottom', o.innerGap);
                 }
             });
             // Enlarge a bit the last element to compensate for accumulated floored decimal widths leaving a gap at the end
-            if (accumulatedWidth < baseWidth)
-                items.last().css('width',
-                    items.last().width() + ((baseWidth - ((items.width - 1) * o.innerGap) ) - accumulatedWidth)
-                );
+            if (accumulatedWidth < baseWidth) {
+                difference = (baseWidth - ((items.length - 1) * o.innerGap)) - accumulatedWidth;
+                items.last().width(items.last().width() + difference);
+            }
         }
 
         base.init();

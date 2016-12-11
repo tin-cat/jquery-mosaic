@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE HTML>
 <head>
 	<title><?= $title ? $title : "jquery-mosaic plugin example" ?></title><!-- omitOnExampleSource -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

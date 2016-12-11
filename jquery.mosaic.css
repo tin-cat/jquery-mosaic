@@ -15,7 +15,7 @@
 .mosaic > div,
 .mosaic > a,
 .mosaic > img {
-    float: left;
+	float: left;
 }
 
 .mosaic > .item {
