@@ -151,7 +151,7 @@ ul.options > li > .default:before {
 	font-size: 10pt;
 	color: #fff;
 	background: #e40;
-	padding: 5pt 8pt;
+	padding: 2pt 8pt;
 	text-decoration: none;
 	cursor: pointer;
 }
