@@ -21,7 +21,7 @@
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
-			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>Now with more gaps!</div>\n".
+			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with pixel perfection!</div>\n".
 			"$items".
 		"</div>\n".
 		"\n".
@@ -31,13 +31,25 @@
 		"			maxRowHeight: 400,\n".
 		"			highResImagesWidthThreshold: 640,\n".
 		"			maxRowHeightPolicy: 'skip',\n".
-		"			innerGap: 15\n".
 		"		});\n".
 		"	});\n".
 		"</script>\n";
 
 	// Build how to use
 	$content .= "
+		<div class=\"content\">
+			<a name=\"basicUsage\"></a>
+			<h1>Key features</h1>
+			<ul class=\"fancy\">
+				<li>Pixel perfect seamless mosaics</li>
+				<li>Obviously responsive</li>
+				<li>Create mosaics of images or divs containing whatever your want</li>
+				<li>Automatically loads high resolution images for retina glory</li>
+			</ul>
+		</div>
+
+			<hr>
+
 		<div class=\"content\">
 			<a name=\"basicUsage\"></a>
 			<h1>Basic usage</h1>

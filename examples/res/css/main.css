@@ -2,8 +2,8 @@ body {
 	margin: 0;
 	background-color: #111;
 	font-family: Georgia, Serif;
-	font-size: 13pt;
-	line-height: 1.2em;
+	font-size: 14pt;
+	line-height: 1.4em;
 	color: #fff;
 }
 
@@ -323,9 +323,9 @@ blockquote.code .ellipsis {
 	top: -20px;
 	width: 175px;
 	text-align: center;
-	font-size: 20pt;
+	font-size: 18pt;
 	font-style: italic;
-	line-height: 1em;
+	line-height: 1.2em;
 	color: #fff;
 
 	background: rgb(255,142,208);
