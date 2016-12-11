@@ -2,9 +2,6 @@
 
 	include "res/common.php";
 
-    srand(1);
-    mt_srand(1);
-
     for ($i = 0; $i < 20; $i ++)
     	$items .=
     		"\t".
