@@ -291,6 +291,11 @@ $('#myMosaic').Mosaic({
 			"link" => "example_margins.php"
 		],
 		[
+			"title" => "maxRowHeightPolicy demo",
+			"description" => "See the differences between the maxRowHeightPolicy modes",
+			"link" => "example_maxrowheightpolicy.php"
+		],
+		[
 			"title" => "See a real application",
 			"description" => "See the plugin at work on Skinography.net <i>(NSFW)</i>",
 			"link" => "https://skinography.net",
