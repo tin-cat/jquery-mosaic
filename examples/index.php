@@ -297,8 +297,8 @@ $('#myMosaic').Mosaic({
 		],
 		[
 			"title" => "See a real application",
-			"description" => "See the plugin at work on Skinography.net <i>(NSFW)</i>",
-			"link" => "https://skinography.net",
+			"description" => "See the plugin at work at Litmind.com",
+			"link" => "https://litmind.com",
 			"linkIsNewwWindow" => true
 		]
 	];
