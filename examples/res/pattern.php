@@ -17,5 +17,7 @@
 
 <?= $footer ? "<div class=\"footer\">$footer</div>" : null ?>
 
+<? if (file_exists("res/additional_footer.php")) include "res/additional_footer.php"; ?>
+
 </body>
 </html>
