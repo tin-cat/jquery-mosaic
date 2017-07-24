@@ -8,16 +8,16 @@
 	$imageFiles = getImageFiles($lowResImagesDir, 12);
 	shuffle($imageFiles);
 
-    foreach ($imageFiles as $file)
-    	$items .=
-    		"\t".
-    		"<img".
-    			" src=\"".$lowResImagesDir.$file["fileName"]."\"".
-    			" data-high-res-image-src=\"".$highResImagesDir.$file["fileName"]."\"".
-    			" width=\"".$file["width"]."\"".
-    			" height=\"".$file["height"]."\"".
-    		" />".
-    		"\n";
+	foreach ($imageFiles as $file)
+		$items .=
+			"\t".
+			"<img".
+				" src=\"".$lowResImagesDir.$file["fileName"]."\"".
+				" data-high-res-image-src=\"".$highResImagesDir.$file["fileName"]."\"".
+				" width=\"".$file["width"]."\"".
+				" height=\"".$file["height"]."\"".
+			" />".
+			"\n";
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
@@ -151,6 +151,11 @@
 					<div class=\"description\">A gap size in pixels to leave a space between elements.</div>
 					<div class=\"default\">0</div>
 				</li>
+				<li>
+					<div class=\"name\">responsiveWidthThreshold</div>
+					<div class=\"description\">The minimum width for which to keep building the mosaic. If specified, when the width is less than this, the mosaic building logic is not applied, and one item per row is always shown. This might help you avoid resulting item sizes that are too small and might break complex html/css inside them, specially when aiming for great responsive mosaics. When using this, you can also specify a \"data-only-force-height-when-necessary\" html item property with value \"1\" in the specific items you don't want to apply forced aspect ratios when this minimum width threshold is reached.</div>
+					<div class=\"default\">false</div>
+				</li>
 			</ul>
 			<p>For example:</p>
 			<blockquote class=\"code javascript\">".formatHtml("
@@ -160,7 +165,8 @@ $('#myMosaic').Mosaic({
 	refitOnResizeDelay: false,
 	defaultAspectRatio: 0.5,
 	maxRowHeightPolicy: 'crop',
-	highResImagesWidthThreshold: 850
+	highResImagesWidthThreshold: 850,
+	responsiveWidthThreshold: 500
 });
 			")."</blockquote>
 		</div>

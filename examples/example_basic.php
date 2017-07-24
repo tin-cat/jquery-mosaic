@@ -6,15 +6,15 @@
 	$imageFiles = getImageFiles($imagesDir);
 	shuffle($imageFiles);
 
-    foreach ($imageFiles as $file)
-    	$items .=
-    		"\t".
-    		"<img".
-    			" src=\"".$imagesDir.$file["fileName"]."\"".
-    			" width=\"".$file["width"]."\"".
-    			" height=\"".$file["height"]."\"".
-    		" />".
-    		"\n";
+	foreach ($imageFiles as $file)
+		$items .=
+			"\t".
+			"<img".
+				" src=\"".$imagesDir.$file["fileName"]."\"".
+				" width=\"".$file["width"]."\"".
+				" height=\"".$file["height"]."\"".
+			" />".
+			"\n";
 
 	$content =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".

@@ -1,32 +1,32 @@
 /*
-     jQuery Mosaic v0.131
-     https://github.com/tin-cat/jquery-mosaic
+	 jQuery Mosaic v0.132
+	 https://github.com/tin-cat/jquery-mosaic
  */
 
-.mosaic {
-    width: 100%;
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden;
+.jQueryMosaic {
+	width: 100%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
-.mosaic > div,
-.mosaic > a,
-.mosaic > img {
+.jQueryMosaic > div,
+.jQueryMosaic > a,
+.jQueryMosaic > img {
 	float: left;
 }
 
-.mosaic > .item {
+.jQueryMosaic > .item {
 	position: relative;
 }
 
-.mosaic > .item.withImage {
+.jQueryMosaic > .item.withImage {
 	background-size: cover;
 }
 
-.mosaic > .item > .overlay {
+.jQueryMosaic > .item > .overlay {
 	opacity: 0;
 	position: absolute;
 	left: 0px; right: 0px; top: 0px; bottom: 0px;
@@ -35,11 +35,11 @@
 	-webkit-transition: opacity .2s ease-in-out;
 }
 
-.mosaic > .item:hover > .overlay {
+.jQueryMosaic > .item:hover > .overlay {
 	opacity: 1;
 }
 
-.mosaic > .item > .overlay > .texts {
+.jQueryMosaic > .item > .overlay > .texts {
 	position: absolute;
 	left: 0px; right: 0px; bottom: 0px;
 	padding: 15pt;
@@ -47,16 +47,16 @@
 	color: #fff;
 }
 
-.mosaic > .item > .overlay > .texts h1,
-.mosaic > .item > .overlay > .texts h2 {
+.jQueryMosaic > .item > .overlay > .texts h1,
+.jQueryMosaic > .item > .overlay > .texts h2 {
 	margin: 0;
 	line-height: 1.3em;
 }
 
-.mosaic > .item > .overlay > .texts h1 {
+.jQueryMosaic > .item > .overlay > .texts h1 {
 	font-size: 17pt;
 }
 
-.mosaic > .item > .overlay > .texts h2 {
+.jQueryMosaic > .item > .overlay > .texts h2 {
 	font-size: 13pt;
 }
