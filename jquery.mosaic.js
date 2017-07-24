@@ -112,12 +112,14 @@
 			return width / base.getItemAspectRatio(item);
 		}
 
-		base.setItemSizeByGivenHeight = function(item, height) {
+		base.setItemSizeByGivenHeight = function(item, height, isDoNotSetHeight) {
 			var width = Math.floor(base.getItemWidthForGivenHeight(item, height));
 
-			$(item)
-				.css('width', width + 'px')
-				.css('height', Math.floor(height) + 'px');
+			$(item).css('width', width + 'px');
+			if (isDoNotSetHeight)
+				$(item).css('height', 'auto');
+			else
+				$(item).css('height', Math.floor(height) + 'px');
 
 			if (o.highResImagesWidthThreshold) {
 
@@ -236,6 +238,7 @@
 		}
 
 		base.fitItems = function(items) {
+			var isDoNothing = false;
 			var height = base.calculateHeightToFit(items);
 			if (height > o.maxRowHeight) {
 				switch (o.maxRowHeightPolicy) {
@@ -248,13 +251,14 @@
 						break;
 					case 'oversize':
 						// Do nothing
+						var isDoNothing = true;
 						break;
 				}
 			}
 			items.each(function() { $(this).show(); });
 			var accumulatedWidth = 0;
 			items.each(function(idx) {
-				 accumulatedWidth += base.setItemSizeByGivenHeight(this, height); 
+				 accumulatedWidth += base.setItemSizeByGivenHeight(this, height, isDoNothing && $(this).data('only-force-height-when-necessary')); 
 				if (o.innerGap) {
 					$(this).css('margin-right', idx < items.length - 1 ? o.innerGap : 0);
 					$(this).css('margin-bottom', o.innerGap);
