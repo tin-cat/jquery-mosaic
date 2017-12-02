@@ -7,7 +7,7 @@ Works wonderfully with images by creating a visually ordered and pleasant mosaic
 
 Here's a bonus working site using jQuery mosaic: https://litmind.com
 
-### Version history
+### Version history
 * **v0.14** New maxRowHeightPolicy 'tail' that renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally, suggested by [@borekl](https://github.com/borekl) and [@nzjrs](https://github.com/nzjrs).
 * **v0.13** New outerMargin and innerGap parameters.
 
