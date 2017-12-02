@@ -4,6 +4,8 @@
 
 	$imagesDir = "res/images/assorted/lowres/";
 	$imageFiles = getImageFiles($imagesDir);
+	if ($_GET["randomSeed"])
+		srand($_GET["randomSeed"]);
 	shuffle($imageFiles);
 
 	foreach ($imageFiles as $file)
@@ -31,6 +33,10 @@
 				"<h2 data-no-mosaic=true>oversize</h2>\n".
 				"$items".
 			"</div>\n".
+			"<div id=\"mosaic4\" class=\"mosaic\" style=\"width: 250px; margin: 0 30px; display: inline-block; float: none;\">\n".
+				"<h2 data-no-mosaic=true>tail</h2>\n".
+				"$items".
+			"</div>\n".
 		"</div>\n".
 		"\n".
 		"<script>\n".
@@ -46,6 +52,10 @@
 		"		$('#mosaic3').Mosaic({".
 		"			maxRowHeight: 80,\n".
 		"			maxRowHeightPolicy: 'oversize'\n".
+		"		});\n".
+		"		$('#mosaic4').Mosaic({".
+		"			maxRowHeight: 80,\n".
+		"			maxRowHeightPolicy: 'tail'\n".
 		"		});\n".
 		"   });\n".
 		"</script>\n";

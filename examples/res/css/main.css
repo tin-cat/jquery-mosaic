@@ -33,7 +33,7 @@ header h3 {
 hr {
 	float: left;
 	width: 100%;
-	margin: 40pt 0;
+	margin: 10pt 0;
 	border: none;
 	border-bottom: solid #fff 1px;
 	height: 1px;
@@ -52,7 +52,7 @@ a:hover {
 	float: left;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 40pt;
+	padding: 20pt 40pt;
 }
 
 .footer {
@@ -83,8 +83,7 @@ ul.fancy > li {
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	padding-left: 30px;
-
-	margin-bottom: 20pt;
+	margin-bottom: 10pt;
 }
 
 ul.fancy > li > .title {
@@ -92,7 +91,6 @@ ul.fancy > li > .title {
 	font-size: 15pt;
 	font-weight: bold;
 	font-style: italic;
-	margin-bottom: 5pt;
 }
 
 ul.options {
@@ -163,28 +161,28 @@ ul.options > li > .default:before {
 }
 
 blockquote.code {
-	background: #222;
+	background: #e5daab;
 	padding: 20pt;
 	margin: 20pt 0;
-	font-family: 'Courier';
-	font-size: 12pt;
+	font-family: Courier;
+	font-size: 10.5pt;
 	white-space: pre;
-	color: #d6ec85;
+	color: #000000;
 	overflow-x: auto;
 }
 
 blockquote.code.html,
 blockquote.code .html {
-	color: #4fd7f9;
+	color: #733f02;
 }
 
 blockquote.code.javascript,
 blockquote.code .javascript {
-	color: #e3e66e;
+	color: #022f68;
 }
 
 blockquote.code .ellipsis {
-	color: #888;
+	color: rgba(0, 0, 0, 0.2);
 }
 
 #exampleContent {

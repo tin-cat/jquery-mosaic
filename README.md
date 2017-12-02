@@ -7,6 +7,10 @@ Works wonderfully with images by creating a visually ordered and pleasant mosaic
 
 Here's a bonus working site using jQuery mosaic: https://litmind.com
 
+### Version history ###
+* **v0.14** New maxRowHeightPolicy 'tail' that renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally, suggested by [@borekl](https://github.com/borekl) and [@nzjrs](https://github.com/nzjrs).
+* **v0.13** New outerMargin and innerGap parameters.
+
 ### License ###
 jQuery Mosaic is released under the MIT License, meaning you can do with it whatever you want, even for commercial and obscure purposes. A credit somewhere would be appreciated, though!
 

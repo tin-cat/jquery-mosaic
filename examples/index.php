@@ -21,7 +21,7 @@
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
-			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with pixel perfection!</div>\n".
+			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with tails!</div>\n".
 			"$items".
 		"</div>\n".
 		"\n".
@@ -48,7 +48,24 @@
 			</ul>
 		</div>
 
-			<hr>
+		<hr>
+
+		<div class=\"content\">
+			<a name=\"basicUsage\"></a>
+			<h1>Version history</h1>
+			<ul class=\"fancy\">
+				<li>
+					<b>v0.14</b><br>
+					New maxRowHeightPolicy 'tail' that renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally, suggested by <a href=\"https://github.com/borekl\" target=\"credit\">@borekl</a> and <a href=\"https://github.com/nzjrs\" target=\"credit\">@nzjrs</a>
+				</li>
+				<li>
+					<b>v0.13</b><br>
+					New outerMargin and innerGap parameters.
+				</li>
+			</ul>
+		</div>
+
+		<hr>
 
 		<div class=\"content\">
 			<a name=\"basicUsage\"></a>
@@ -131,7 +148,8 @@
 						<ul>
 							<li><b>skip</b> Does not renders the unfitting items.</li>
 							<li><b>crop</b> Caps the desired height to the specified maxRowHeight, resulting in those items not keeping their aspect ratios.</li>
-							<li><b>oversize</b> Renders the items respecting their aspect ratio but surpassing the specified maxRowHeight</li>
+							<li><b>oversize</b> Renders items respecting their aspect ratio but surpassing the specified maxRowHeight.</li>
+							<li><b>tail</b> Renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally.</li>
 						</ul>
 					</div>
 					<div class=\"default\">skip</div>

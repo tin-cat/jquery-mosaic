@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.132
+	 jQuery Mosaic v0.14
 	 https://github.com/tin-cat/jquery-mosaic
 	 A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -253,19 +253,23 @@
 						// Do nothing
 						var isDoNothing = true;
 						break;
+					case 'tail':
+						height = o.maxRowHeight;
+						var isTail = true;
+						break;
 				}
 			}
 			items.each(function() { $(this).show(); });
 			var accumulatedWidth = 0;
 			items.each(function(idx) {
-				 accumulatedWidth += base.setItemSizeByGivenHeight(this, height, isDoNothing && $(this).data('only-force-height-when-necessary')); 
+				accumulatedWidth += base.setItemSizeByGivenHeight(this, height, isDoNothing && $(this).data('only-force-height-when-necessary')); 
 				if (o.innerGap) {
 					$(this).css('margin-right', idx < items.length - 1 ? o.innerGap : 0);
 					$(this).css('margin-bottom', o.innerGap);
 				}
 			});
 			// Compensate the last element for accumulated floored decimal widths leaving a gap at the end
-			if (accumulatedWidth != (baseWidth - ((items.length - 1) * o.innerGap))) {
+			if (!isTail && accumulatedWidth != (baseWidth - ((items.length - 1) * o.innerGap))) {
 				difference = (baseWidth - ((items.length - 1) * o.innerGap)) - accumulatedWidth;
 				var width = items.last().width();
 				items.last().width(width + difference);
