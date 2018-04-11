@@ -8,8 +8,11 @@
 
 	$.Mosaic = function(el, options) {
 		var base = this, o;
+      
 		base.el = el;
 		base.$el = $(el);
+
+    var htmlDataOptions = base.$el.data();
 
 		base.$el.data('Mosaic', base);
 
@@ -17,7 +20,8 @@
 		var refitTimeout = false;
 
 		base.init = function() {
-			base.options = o = $.extend({}, $.Mosaic.defaults, options);
+      // Priority of parameters : JS options > HTML data options > DEFAULT options
+			base.options = o = $.extend({}, $.Mosaic.defaults, htmlDataOptions, options);
 
 			$(base.el).addClass("jQueryMosaic");
 
