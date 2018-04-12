@@ -21,7 +21,7 @@
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
-			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with tails!</div>\n".
+			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with floating points!</div>\n".
 			"$items".
 		"</div>\n".
 		"\n".
@@ -54,6 +54,10 @@
 			<a name=\"basicUsage\"></a>
 			<h1>Version history</h1>
 			<ul class=\"fancy\">
+				<li>
+					<b>v0.15</b><br>
+					Added the ability to pass parameters as html data-* attributes. Solved floating point width bug for compatibility with jQuery versions < 3. Thanks to <a href=\"https://github.com/BenTalagan\" target=\"credit\">@BenTalagan</a>
+				</li>
 				<li>
 					<b>v0.14</b><br>
 					New maxRowHeightPolicy 'tail' that renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally, suggested by <a href=\"https://github.com/borekl\" target=\"credit\">@borekl</a> and <a href=\"https://github.com/nzjrs\" target=\"credit\">@nzjrs</a>
@@ -176,6 +180,15 @@
 				</li>
 			</ul>
 			<p>For example:</p>
+			<blockquote class=\"code html\">".formatHtml("
+<div id=\"myMosaic\">
+	<img src=\"image1.jpg\" />
+	<img src=\"image2.jpg\" />
+	<img src=\"image3.jpg\" />
+	<img src=\"image4.jpg\" />
+	...
+</div>
+			")."</blockquote>
 			<blockquote class=\"code javascript\">".formatHtml("
 $('#myMosaic').Mosaic({
 	maxRowHeight: 800,
@@ -195,6 +208,21 @@ $('#myMosaic').Mosaic({
 			<a name=\"advancedUsage\"></a>
 			<h1>Advanced usage</h1>
 			<ul class=\"fancy\">
+				<li>
+					Instead of passing options in the Javascript plugin call, you can pass them right into the HTML element by adding data-* attributes
+					<blockquote class=\"code html\">".formatHtml("
+<div id=\"myMosaic\" data-maxRowHeight=\"800\" data-refitOnResize=\"1\" data-refitOnResizeDelay=\"0\" data-defaultAspectRatio=\"0.5\" data-maxRowHeightPolicy=\"crop\" data-highResImagesWidthThreshold=\"850\" data-responsiveWidthThreshold=\"500\">
+	<img src=\"image1.jpg\" />
+	<img src=\"image2.jpg\" />
+	<img src=\"image3.jpg\" />
+	<img src=\"image4.jpg\" />
+	...
+</div>
+					")."</blockquote>
+					<blockquote class=\"code javascript\">".formatHtml("
+$('#myMosaic').Mosaic();
+			")."</blockquote>
+				</li>
 				<li>
 					You can specify the aspect ratio of each mosaic piece by adding the <i>data-aspect-ratio</i> property on each element instead of the <i>height</i> and <i>width</i>
 					<blockquote class=\"code html\">".formatHtml("

@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.14
+	 jQuery Mosaic v0.15
 	 https://github.com/tin-cat/jquery-mosaic
 	 A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -20,8 +20,18 @@
 		var refitTimeout = false;
 
 		base.init = function() {
+
 			// Priority of parameters : JS options > HTML data options > DEFAULT options
-			base.options = o = $.extend({}, $.Mosaic.defaults, htmlDataOptions, options);
+			base.options = $.Mosaic.defaults;
+
+			// Matches data attributes with the defaults in a case-insensitive manner for overwriting options, since HTML data attributes are always converted to lowercase when retrieved.
+			$.each(base.options, function(option) {
+				if(base.isHasOwnPropertyCaseInsensitive(htmlDataOptions, option)) {
+					base.options[option] = htmlDataOptions[option.toLowerCase()];
+				}
+			});
+
+			base.options = o = $.extend({}, base.options, options);
 
 			$(base.el).addClass("jQueryMosaic");
 
@@ -53,6 +63,20 @@
 					else
 						base.fit()
 				});
+		}
+
+		// Method by Stoive (https://stackoverflow.com/a/5832964)
+		base.isHasOwnPropertyCaseInsensitive = function(obj, property) {
+			var props = [];
+			for (var i in obj)
+				if (obj.hasOwnProperty(i))
+					props.push(i);
+			var prop;
+			while (prop = props.pop()) {
+				if (prop.toLowerCase() === property.toLowerCase())
+					return true;
+			}
+			return false;
 		}
 
 		base.getItems = function() {
@@ -182,8 +206,10 @@
 			return (baseWidth - (o.innerGap * (items.length - 1))) / sumAspectRatios;
 		}
 
+		// Based on the method by glen.codes to get subpixel attributes of elements: https://glen.codes/getting-the-subpixel-width-of-an-element/, to try and solve the bug in jQuery versions < 3: https://github.com/jquery/jquery/issues/1724
 		base.retrieveBaseWidth = function() {
-			baseWidth = Math.floor($(base.el).width());
+			var value = parseFloat($(base.el).css('width'));
+			baseWidth = $.isNumeric(value) ? value : 0;
 		}
 
 		base.fit = function() {

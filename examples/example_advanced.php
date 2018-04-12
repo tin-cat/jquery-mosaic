@@ -30,15 +30,13 @@
 			"\n";
 
 	$content =
-		"<div id=\"mosaic\" class=\"mosaic\">\n".
+		"<div id=\"mosaic\" class=\"mosaic\" data-maxRowHeight=\"800\">\n".
 			"$items".
 		"</div>\n".
 		"\n".
 		"<script>\n".
 		"   $(function() {\n".
-		"	    $('#mosaic').Mosaic({\n".
-		"		   maxRowHeight: 800\n".
-		"	    });\n".
+		"	    $('#mosaic').Mosaic();\n".
 		"   });\n".
 		"</script>\n";
 
