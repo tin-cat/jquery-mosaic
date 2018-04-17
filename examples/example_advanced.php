@@ -30,7 +30,7 @@
 			"\n";
 
 	$content =
-		"<div id=\"mosaic\" class=\"mosaic\" data-maxRowHeight=\"800\">\n".
+		"<div id=\"mosaic\" class=\"mosaic\" data-max-row-height=\"300\">\n".
 			"$items".
 		"</div>\n".
 		"\n".

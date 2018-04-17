@@ -211,7 +211,7 @@ $('#myMosaic').Mosaic({
 				<li>
 					Instead of passing options in the Javascript plugin call, you can pass them right into the HTML element by adding data-* attributes
 					<blockquote class=\"code html\">".formatHtml("
-<div id=\"myMosaic\" data-maxRowHeight=\"800\" data-refitOnResize=\"1\" data-refitOnResizeDelay=\"0\" data-defaultAspectRatio=\"0.5\" data-maxRowHeightPolicy=\"crop\" data-highResImagesWidthThreshold=\"850\" data-responsiveWidthThreshold=\"500\">
+<div id=\"myMosaic\" data-max-row-height=\"800\" data-refit-on-resize=\"1\" data-refit-on-resize-relay=\"0\" data-default-aspect-ratio=\"0.5\" data-max-row-height-policy=\"crop\" data-high-res-images-width-threshold=\"850\" data-responsive-width-threshold=\"500\">
 	<img src=\"image1.jpg\" />
 	<img src=\"image2.jpg\" />
 	<img src=\"image3.jpg\" />

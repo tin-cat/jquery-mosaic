@@ -12,26 +12,14 @@
 		base.el = el;
 		base.$el = $(el);
 
-		var htmlDataOptions = base.$el.data();
-
 		base.$el.data('Mosaic', base);
 
 		var baseWidth;
 		var refitTimeout = false;
 
 		base.init = function() {
-
 			// Priority of parameters : JS options > HTML data options > DEFAULT options
-			base.options = $.Mosaic.defaults;
-
-			// Matches data attributes with the defaults in a case-insensitive manner for overwriting options, since HTML data attributes are always converted to lowercase when retrieved.
-			$.each(base.options, function(option) {
-				if(base.isHasOwnPropertyCaseInsensitive(htmlDataOptions, option)) {
-					base.options[option] = htmlDataOptions[option.toLowerCase()];
-				}
-			});
-
-			base.options = o = $.extend({}, base.options, options);
+			base.options = o = $.extend({}, $.Mosaic.defaults, base.$el.data(), options);
 
 			$(base.el).addClass("jQueryMosaic");
 
@@ -63,20 +51,6 @@
 					else
 						base.fit()
 				});
-		}
-
-		// Method by Stoive (https://stackoverflow.com/a/5832964)
-		base.isHasOwnPropertyCaseInsensitive = function(obj, property) {
-			var props = [];
-			for (var i in obj)
-				if (obj.hasOwnProperty(i))
-					props.push(i);
-			var prop;
-			while (prop = props.pop()) {
-				if (prop.toLowerCase() === property.toLowerCase())
-					return true;
-			}
-			return false;
 		}
 
 		base.getItems = function() {
