@@ -20,7 +20,7 @@
 		base.init = function() {
 			// Priority of parameters : JS options > HTML data options > DEFAULT options
 			base.options = o = $.extend({}, $.Mosaic.defaults, base.$el.data(), options);
-
+			
 			$(base.el).addClass("jQueryMosaic");
 
 			if (o.outerMargin)
@@ -32,9 +32,9 @@
 			// If width and height are specified via attribute, set width and height as css properties to solve weird IE problem.
 			base.getItems().each(function(idx, item) {
 				if ($(item).attr('width'))
-					$(item).css('width', $(item).attr('width'));
+					$(item).width($(item).attr('width'));
 				if ($(item).attr('height'))
-					$(item).css('height', $(item).attr('height'));
+					$(item).height($(item).attr('height'));
 			});
 			
 			base.fit();
@@ -117,11 +117,11 @@
 		base.setItemSizeByGivenHeight = function(item, height, isDoNotSetHeight) {
 			var width = Math.floor(base.getItemWidthForGivenHeight(item, height));
 
-			$(item).css('width', width + 'px');
+			$(item).width(width + 'px');
 			if (isDoNotSetHeight)
-				$(item).css('height', 'auto');
+				$(item).height('auto');
 			else
-				$(item).css('height', Math.floor(height) + 'px');
+				$(item).height(Math.floor(height));
 
 			if (o.highResImagesWidthThreshold) {
 
@@ -182,7 +182,7 @@
 
 		// Based on the method by glen.codes to get subpixel attributes of elements: https://glen.codes/getting-the-subpixel-width-of-an-element/, to try and solve the bug in jQuery versions < 3: https://github.com/jquery/jquery/issues/1724
 		base.retrieveBaseWidth = function() {
-			var value = parseFloat($(base.el).css('width'));
+			var value = parseFloat($(base.el).width());
 			baseWidth = $.isNumeric(value) ? value : 0;
 		}
 
@@ -194,12 +194,12 @@
 				base.getItems().each(function() {
 					var height = base.getItemHeightForGivenWidth(this, baseWidth);
 
-					$(this).css('width', baseWidth)
+					$(this).width(baseWidth)
 
 					if ($(this).data('only-force-height-when-necessary'))
-						$(this).css('height', 'auto');
+						$(this).height('auto');
 					else
-						$(this).css('height', height);
+						$(this).height(height);
 
 					if (o.innerGap)
 						$(this).css('margin-bottom', o.innerGap);
