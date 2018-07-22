@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.15
+	 jQuery Mosaic v0.151
 	 https://github.com/tin-cat/jquery-mosaic
 	 A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -138,16 +138,20 @@
 						$(item).addClass('highRes');
 					}
 
-					var highResImage = $(item).data('high-res-image-src');
-					if (
-						highResImage
-						&&
-						!$(item).data('low-res-image-src')
-					) {
-						$(item).data('low-res-image-src', $(item).attr('src'));
-						$(item).attr('src', highResImage);
-						$(item).addClass('highRes');
-					}
+					// Apply high-res-image-src to this item and also to all IMGs inside
+					$('img', item).add(item).each(function(idx, subItem) {
+						var highResImage = $(subItem).data('high-res-image-src');
+						if (
+							highResImage
+							&&
+							!$(subItem).data('low-res-image-src')
+						) {
+							$(subItem).data('low-res-image-src', $(subItem).attr('src'));
+							$(subItem).attr('src', highResImage);
+							$(subItem).addClass('highRes');
+						}
+					});
+
 				}
 				else {
 
@@ -158,12 +162,15 @@
 						$(item).removeClass('highRes');
 					}
 
-					var lowResImage = $(item).data('low-res-image-src');
-					if (lowResImage) {
-						$(item).attr('src', lowResImage);
-						$(item).data('low-res-image-src', false);
-						$(item).removeClass('highRes');
-					}
+					// Apply low-res-image-src to this item and also to all IMGs inside
+					$('img', item).add(item).each(function(idx, subItem) {
+						var lowResImage = $(subItem).data('low-res-image-src');
+						if (lowResImage) {
+							$(subItem).attr('src', lowResImage);
+							$(subItem).data('low-res-image-src', false);
+							$(subItem).removeClass('highRes');
+						}
+					});
 
 				}
 
