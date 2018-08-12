@@ -11,7 +11,7 @@ Works wonderfully with images by creating a visually ordered and pleasant mosaic
 * **v0.13** New outerMargin and innerGap parameters.
 
 ### Compatibility
-* Should work on jQuery versions < 3, tested succesfully on v3.1.0
+* Requires at least jQuery version 3.3.0
 * Tested successfully on Safari 11.1, Chrome 65.0.3325.181 and Firefox 59.0.2
 
 ### For programmers and contributors
