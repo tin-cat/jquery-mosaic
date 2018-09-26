@@ -1,4 +1,4 @@
-<?
+<?php
 
 function pattern($setup, $name = "pattern.php") {
 	while (list($key, $value) = each($setup))
@@ -10,7 +10,8 @@ function pattern($setup, $name = "pattern.php") {
 		foreach (explode("\n", $source) as $line)
 			if (!strstr($line, "omitOnExampleSource"))
 				$filteredSource .= $line."\n";
-		echo highlight_string($filteredSource, true);
+		$content = highlight_string($filteredSource, true);
+		include "pattern.php";
 	}
 	else
 		include $name;

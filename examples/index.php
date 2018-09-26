@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include "res/common.php";
 
@@ -21,7 +21,7 @@
 
 	$mosaic =
 		"<div id=\"mosaic\" class=\"mosaic\">\n".
-			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>now with floating points!</div>\n".
+			"<div class=\"ribbon\" data-no-mosaic=\"true\"><div class=\"curl\"></div>limited<br>rows<br>edition!</div>\n".
 			"$items".
 		"</div>\n".
 		"\n".
@@ -37,7 +37,7 @@
 
 	// Build how to use
 	$content .= "
-		<div class=\"content\">
+		<div class=\"contentWrapper\"><div class=\"content\">
 			<a name=\"basicUsage\"></a>
 			<h1>Key features</h1>
 			<ul class=\"fancy\">
@@ -46,14 +46,18 @@
 				<li>Create mosaics of images or divs containing whatever your want</li>
 				<li>Automatically loads high resolution images for retina glory</li>
 			</ul>
-		</div>
+		</div></div>
 
 		<hr>
 
-		<div class=\"content\">
+		<div class=\"contentWrapper\"><div class=\"content\">
 			<a name=\"basicUsage\"></a>
 			<h1>Version history</h1>
 			<ul class=\"fancy\">
+				<li>
+					<b>v0.152</b><br>
+					Added maxRows option for those situations where you need fine control on the maximum number of rows of your mosaic.
+				</li>
 				<li>
 					<b>v0.15</b><br>
 					Added the ability to pass parameters as html data-* attributes. Solved floating point width bug for compatibility with jQuery versions < 3. Thanks to <a href=\"https://github.com/BenTalagan\" target=\"credit\">@BenTalagan</a>
@@ -67,11 +71,11 @@
 					New outerMargin and innerGap parameters.
 				</li>
 			</ul>
-		</div>
+		</div></div>
 
 		<hr>
 
-		<div class=\"content\">
+		<div class=\"contentWrapper\"><div class=\"content\">
 			<a name=\"basicUsage\"></a>
 			<h1>Basic usage</h1>
 			<ul class=\"fancy\">
@@ -80,7 +84,7 @@
 				</li>
 				<li>
 					Include the jQuery library and the <i>jquery.mosaic.js</i> + <i>jquery.mosaic.css</i> files from the jQuery Mosaic download in your head section.
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <html>
 <head>
 	...
@@ -91,11 +95,11 @@
 </head>
 <body>
 	...
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					Create a DIV with an id and place your contents inside. Each DIV, A or IMG you place there will be considered as a piece of the mosaic.
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<img src=\"image1.jpg\" width=\"400\" height=\"350\" />
 	<img src=\"image2.jpg\" width=\"320\" height=\"200\" />
@@ -103,25 +107,25 @@
 	<img src=\"image4.jpg\" width=\"442\" height=\"922\" />
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					Build the mosaic by running the plugin in your div
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <script>
 	$('#myMosaic').Mosaic();
 </script>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					That's it! See the <a href=\"#examples\">examples</a> and their source code to learn more.
 				</li>
 			</ul>
-		</div>
+		</div></div>
 
 		<hr>
 
-		<div class=\"content\">
+		<div class=\"contentWrapper\"><div class=\"content\">
 			<a name=\"options\"></a>
 			<h1>Options</h1>
 			<p>You can optionally specify the following options when calling the plugin to customize the mosaic:</p>
@@ -159,6 +163,11 @@
 					<div class=\"default\">skip</div>
 				</li>
 				<li>
+					<div class=\"name\">maxRows</div>
+					<div class=\"description\">In some scenarios you might need fine control about the maximum number of rows of the mosaic. If specified, the mosaic won't have more than this number of rows. If responsiveWidthThreshold is specified, maxRows are not considered when the threshold has been reached</div>
+					<div class=\"default\">false</div>
+				</li>
+				<li>
 					<div class=\"name\">highResImagesWidthThreshold</div>
 					<div class=\"description\">The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the \"data-high-res-image-src\" or \"data-high-res-background-image-url\" html element properties of each item.</div>
 					<div class=\"default\">350</div>
@@ -180,7 +189,7 @@
 				</li>
 			</ul>
 			<p>For example:</p>
-			<blockquote class=\"code html\">".formatHtml("
+			<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<img src=\"image1.jpg\" />
 	<img src=\"image2.jpg\" />
@@ -188,8 +197,8 @@
 	<img src=\"image4.jpg\" />
 	...
 </div>
-			")."</blockquote>
-			<blockquote class=\"code javascript\">".formatHtml("
+			")."</code>
+			<code class=\"isolated javascript\">".formatHtml("
 $('#myMosaic').Mosaic({
 	maxRowHeight: 800,
 	refitOnResize: true,
@@ -199,18 +208,18 @@ $('#myMosaic').Mosaic({
 	highResImagesWidthThreshold: 850,
 	responsiveWidthThreshold: 500
 });
-			")."</blockquote>
-		</div>
+			")."</code>
+		</div></div>
 
 		<hr>
 
-		<div class=\"content\">
+		<div class=\"contentWrapper\"><div class=\"content\">
 			<a name=\"advancedUsage\"></a>
 			<h1>Advanced usage</h1>
 			<ul class=\"fancy\">
 				<li>
 					Instead of passing options in the Javascript plugin call, you can pass them right into the HTML element by adding data-* attributes
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\" data-max-row-height=\"800\" data-refit-on-resize=\"1\" data-refit-on-resize-relay=\"0\" data-default-aspect-ratio=\"0.5\" data-max-row-height-policy=\"crop\" data-high-res-images-width-threshold=\"850\" data-responsive-width-threshold=\"500\">
 	<img src=\"image1.jpg\" />
 	<img src=\"image2.jpg\" />
@@ -218,14 +227,14 @@ $('#myMosaic').Mosaic({
 	<img src=\"image4.jpg\" />
 	...
 </div>
-					")."</blockquote>
-					<blockquote class=\"code javascript\">".formatHtml("
+					")."</code>
+					<code class=\"isolated javascript\">".formatHtml("
 $('#myMosaic').Mosaic();
-			")."</blockquote>
+			")."</code>
 				</li>
 				<li>
 					You can specify the aspect ratio of each mosaic piece by adding the <i>data-aspect-ratio</i> property on each element instead of the <i>height</i> and <i>width</i>
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<img src=\"image1.jpg\" data-aspect-ratio=\"1.432\" />
 	<img src=\"image2.jpg\" data-aspect-ratio=\"0.3\" />
@@ -233,11 +242,11 @@ $('#myMosaic').Mosaic();
 	<img src=\"image4.jpg\" data-aspect-ratio=\"0.883\" />
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					You can specify a high resolution version of the image by adding the <i>data-high-res-image-src</i> property on each element. It will only be loaded and used when needed
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<img src=\"image1.jpg\" data-aspect-ratio=\"1.432\" data-high-res-image-src=\"image1_highres.jpg\"/>
 	<img src=\"image2.jpg\" data-aspect-ratio=\"0.3\" data-high-res-image-src=\"image2_highres.jpg\" />
@@ -245,11 +254,11 @@ $('#myMosaic').Mosaic();
 	<img src=\"image4.jpg\" data-aspect-ratio=\"0.883\" data-high-res-image-src=\"image4_highres.jpg\" />
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					You can use DIVs instead of IMGs for the mosaic. They will be resized to the proper width and height, and their contents will be left untouched, like in <a href=\"example_divs.php\">this example</a>
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<div data-aspect-ratio=\"1.32\">My content</div>
 	<div data-aspect-ratio=\"1.02\">My content</div>
@@ -257,11 +266,11 @@ $('#myMosaic').Mosaic();
 	<div data-aspect-ratio=\"1.02\">My content</div>
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					You can set background images to DIVs for more interesting creative options, add the provided <i>item</i> CSS class to each mosaic element to do so, or use your own CSS
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<div class=\"item withImage\" data-aspect-ratio=\"1.32\" style=\"background-image: url('image1.jpg');\">My content</div>
 	<div class=\"item withImage\" data-aspect-ratio=\"1.02\" style=\"background-image: url('image2.jpg');\">My content</div>
@@ -269,11 +278,11 @@ $('#myMosaic').Mosaic();
 	<div class=\"item withImage\" data-aspect-ratio=\"1.02\" style=\"background-image: url('image4.jpg');\">My content</div>
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					When using background images on DIVs, you can still specify a high resolution background image by adding the <i>high-res-background-image-url</i> property
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<div class=\"item withImage\" data-aspect-ratio=\"1.32\" style=\"background-image: url('image1.jpg');\" data-high-res-background-image-url=\"image1_highres.jpg\">My content</div>
 	<div class=\"item withImage\" data-aspect-ratio=\"1.02\" style=\"background-image: url('image2.jpg');\" data-high-res-background-image-url=\"image2_highres.jpg\">My content</div>
@@ -281,11 +290,11 @@ $('#myMosaic').Mosaic();
 	<div class=\"item withImage\" data-aspect-ratio=\"1.02\" style=\"background-image: url('image4.jpg');\" data-high-res-background-image-url=\"image4_highres.jpg\">My content</div>
 	...
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 				<li>
 					Using Anchors instead of DIVs, background images, and an overlay you can create <a href=\"example_high_resolution.php\">a neat interactive mosaic</a>.
-					<blockquote class=\"code html\">".formatHtml("
+					<code class=\"isolated html\">".formatHtml("
 <div id=\"myMosaic\">
 	<div class=\"item withImage\" data-aspect-ratio=\"1.32\" style=\"background-image: url('image1.jpg');\" data-high-res-background-image-url=\"image1_highres.jpg\">
 		<div class=\"overlay\"><div class=\"texts\">
@@ -307,10 +316,10 @@ $('#myMosaic').Mosaic();
 	</div>
 	..
 </div>
-					")."</blockquote>
+					")."</code>
 				</li>
 			</ul>
-		</div>
+		</div></div>
 
 		<hr>
 	";
@@ -355,7 +364,7 @@ $('#myMosaic').Mosaic();
 		]
 	];
 
-	$content .= "<div class=\"content\"><a name=\"examples\"></a><ul class=\"fancy\">";
+	$content .= "<div class=\"contentWrapper\"><div class=\"content\"><a name=\"examples\"></a><ul class=\"fancy\">";
 	foreach ($examples as $example)
 		$content .=
 			"<li>".
@@ -366,9 +375,9 @@ $('#myMosaic').Mosaic();
 
 	pattern([
 		"title" => "jQuery Mosaic plugin",
-		"header" => "jQuery Mosaic plugin",
+		"header" => "jQuery Mosaic",
 		"headerSubtitle" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a> · download on <a href=\"https://github.com/tin-cat/jquery-mosaic\">Github</a> · see <a href=\"#examples\">examples</a>",
-		"headerSubSubtitle" => "Builds responsive mosaics of images or any other content fitted to match heights in multiple rows while maintaining aspect ratios",
+		"headerSubSubtitle" => "A jQuery plugin for building responsive mosaics of images or any other content fitted to match heights in multiple rows while maintaining aspect ratios",
 		"footer" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a>",
 		"mosaic" => $mosaic,
 		"content" => $content

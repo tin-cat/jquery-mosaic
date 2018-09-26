@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.151
+	 jQuery Mosaic v0.152
 	 https://github.com/tin-cat/jquery-mosaic
 	 A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -65,6 +65,8 @@
 
 		base.getItemsSubset = function(start, numberOf) {
 			var items = base.getItems();
+			if (!numberOf)
+				numberOf = items.length - start;
 			if (start > items.length)
 				return false;
 			if (start + numberOf > items.length)
@@ -193,10 +195,14 @@
 			baseWidth = $.isNumeric(value) ? value : 0;
 		}
 
+		base.isBelowResponsiveWidthThreshold = function() {
+			return o.responsiveWidthThreshold && baseWidth < o.responsiveWidthThreshold;
+		}
+
 		base.fit = function() {
 			base.retrieveBaseWidth();
 
-			if (o.responsiveWidthThreshold && baseWidth < o.responsiveWidthThreshold) {
+			if (base.isBelowResponsiveWidthThreshold()) {
 
 				base.getItems().each(function() {
 					var height = base.getItemHeightForGivenWidth(this, baseWidth);
@@ -219,6 +225,7 @@
 			var itemsToUse = 1;
 			var startIndex = 0;
 			var isAnyFitted = false;
+			var row = 1;
 			while (true) {
 
 				items = base.getItemsSubset(startIndex, itemsToUse);
@@ -241,6 +248,13 @@
 				startIndex += itemsToUse;
 				itemsToUse = 1;
 				isAnyFitted = true;
+
+				if (!base.isBelowResponsiveWidthThreshold() && o.maxRows && row == o.maxRows) {
+					base.getItemsSubset(startIndex).each(function() { $(this).hide(); });
+					return;
+				}
+
+				row ++;
 			}
 
 			// If maxRowHeight has not been met at any point (might happen when specifying short maxRowHeights)
@@ -296,6 +310,7 @@
 		refitOnResizeDelay: false, // Milliseconds to wait after a resize event to refit the mosaic. Useful when creating huge mosaics that can take some CPU time on the user's browser. Leave it to false to refit the mosaic in realtime.
 		defaultAspectRatio: 1, // The aspect ratio to use when none has been specified, or can't be calculated
 		maxRowHeightPolicy: 'skip', // Sometimes some of the remaining items cannot be fitted on a row without surpassing the maxRowHeight. For those cases, choose one of the available settings for maxRowHeightPolicy: "skip": Does not renders the unfitting items. "crop": caps the desired height to the specified maxRowHeight, resulting in those items not keeping their aspect ratios. "oversize": Renders the items respecting their aspect ratio but surpassing the specified maxRowHeight
+		maxRows: false, // In some scenarios you might need fine control about the maximum number of rows of the mosaic. If specified, the mosaic won't have more than this number of rows. If responsiveWidthThreshold is specified, maxRows are not considered when the threshold has been reached.
 		highResImagesWidthThreshold: 350, // The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the "data-high-res-image-src" or "data-high-res-background-image-url" html element properties of each item.
 		outerMargin: 0, // A margin size in pixels for the outher edge of the whole mosaic
 		innerGap: 0, // A gap size in pixels to leave a space between elements
