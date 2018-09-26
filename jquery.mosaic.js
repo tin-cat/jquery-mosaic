@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.152
+	 jQuery Mosaic v0.15.2
 	 https://github.com/tin-cat/jquery-mosaic
 	 A jquery plugin by Tin.cat to build beautifully arranged and responsive mosaics of html elements maintaining their original aspect ratio. Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size. See it working on https://skinography.net
  */
@@ -204,7 +204,14 @@
 
 			if (base.isBelowResponsiveWidthThreshold()) {
 
-				base.getItems().each(function() {
+				var items = base.getItems();
+
+				if (o.maxItemsToShowWhenResponsiveThresholdSurpassed) {
+					$(items).slice(o.maxItemsToShowWhenResponsiveThresholdSurpassed).remove();
+					items = $(items).slice(0, o.maxItemsToShowWhenResponsiveThresholdSurpassed);
+				}
+
+				items.each(function() {
 					var height = base.getItemHeightForGivenWidth(this, baseWidth);
 
 					$(this).width(baseWidth)
@@ -258,8 +265,11 @@
 			}
 
 			// If maxRowHeight has not been met at any point (might happen when specifying short maxRowHeights)
-			if (!isAnyFitted)
+			if (!isAnyFitted) {
+				if (o.showTailWhenNotEnoughItemsForEvenOneRow)
+					o.maxRowHeightPolicy = 'tail';
 				base.fitItems(base.getItems());
+			}
 		}
 
 		base.fitItems = function(items) {
@@ -314,7 +324,9 @@
 		highResImagesWidthThreshold: 350, // The item width on which to start using the the provided high resolution image instead of the normal one. High resolution images are specified via the "data-high-res-image-src" or "data-high-res-background-image-url" html element properties of each item.
 		outerMargin: 0, // A margin size in pixels for the outher edge of the whole mosaic
 		innerGap: 0, // A gap size in pixels to leave a space between elements
-		responsiveWidthThreshold: false // The minimum width for which to keep building the mosaic. If specified, when the width is less than this, the mosaic building logic is not applied, and one item per row is always shown. This might help you avoid resulting item sizes that are too small and might break complex html/css inside them, specially when aiming for great responsive mosaics.
+		responsiveWidthThreshold: false, // The minimum width for which to keep building the mosaic. If specified, when the width is less than this, the mosaic building logic is not applied, and one item per row is always shown. This might help you avoid resulting item sizes that are too small and might break complex html/css inside them, specially when aiming for great responsive mosaics.
+		maxItemsToShowWhenResponsiveThresholdSurpassed: false, // If set (and also responsiveWidthThreshold is set), only this amount of items will be shown when the responsiveWidthThreshold is met
+		showTailWhenNotEnoughItemsForEvenOneRow: false, // If this is set to true, when there are not enough items to fill even a single row, they will be shown anyway even if they do not complete the row horizontally. If left to false, no mosaic will be shown in such occasions.
 	};
 
 	$.fn.Mosaic = function(options, params) {

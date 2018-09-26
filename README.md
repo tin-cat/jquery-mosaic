@@ -6,7 +6,7 @@ A jQuery plugin by Tin.cat that builds responsive mosaics of images or any other
 Works wonderfully with images by creating a visually ordered and pleasant mosaic (much like mosaics on Flickr, 500px and Google+) without gaps between elements, but at the same time respecting aspect ratios. Reacts to window resizes and adapts responsively to any screen size.
 
 ### Version history
-* **v0.15.2** Added maxRows option for those situations where you need fine control on the maximum number of rows of your mosaic.
+* **v0.15.2** Added maxRows option for those situations where you need fine control on the maximum number of rows of your mosaic. Added advanced options maxItemsToShowWhenResponsiveThresholdSurpassed and showTailWhenNotEnoughItemsForEvenOneRow for even more fine-grained control of your mosaic.
 * **v0.15** Added the ability to pass parameters as html data-* attributes. Solved floating point width bug for compatibility with jQuery versions < 3. Thanks to [@BenTalagan](https://github.com/BenTalagan).
 * **v0.14** New maxRowHeightPolicy 'tail' that renders items respecting their aspect ratio without surpassing the specified maxRowHeight, resulting in a last row that might not completely fit the screen horizontally, suggested by [@borekl](https://github.com/borekl) and [@nzjrs](https://github.com/nzjrs).
 * **v0.13** New outerMargin and innerGap parameters.
