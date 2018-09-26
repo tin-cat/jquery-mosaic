@@ -125,60 +125,46 @@
 			else
 				$(item).height(Math.floor(height));
 
-			if (o.highResImagesWidthThreshold) {
-
-				if (width > o.highResImagesWidthThreshold) {
-
-					var highResBackgroundImage = $(item).data('high-res-background-image-url');
-					if (
-						highResBackgroundImage
-						&&
-						!$(item).data('low-res-background-image-url')
-					) {
-						$(item).data('low-res-background-image-url', $(item).css('background-image'));
-						$(item).css('background-image', 'url("' + highResBackgroundImage + '")');
-						$(item).addClass('highRes');
-					}
-
-					// Apply high-res-image-src to this item and also to all IMGs inside
-					$('img', item).add(item).each(function(idx, subItem) {
-						var highResImage = $(subItem).data('high-res-image-src');
-						if (
-							highResImage
-							&&
-							!$(subItem).data('low-res-image-src')
-						) {
-							$(subItem).data('low-res-image-src', $(subItem).attr('src'));
-							$(subItem).attr('src', highResImage);
-							$(subItem).addClass('highRes');
-						}
-					});
-
-				}
-				else {
-
-					var lowResBackgroundImage = $(item).data('low-res-background-image-url');
-					if (lowResBackgroundImage) {
-						$(item).css('background-image', lowResBackgroundImage);
-						$(item).data('low-res-background-image-url', false);
-						$(item).removeClass('highRes');
-					}
-
-					// Apply low-res-image-src to this item and also to all IMGs inside
-					$('img', item).add(item).each(function(idx, subItem) {
-						var lowResImage = $(subItem).data('low-res-image-src');
-						if (lowResImage) {
-							$(subItem).attr('src', lowResImage);
-							$(subItem).data('low-res-image-src', false);
-							$(subItem).removeClass('highRes');
-						}
-					});
-
-				}
-
-			}
+			base.handleHighResForItem(item);
 
 			return width;
+		}
+
+		base.handleHighResForItem = function(item) {
+			if (!o.highResImagesWidthThreshold)
+				return;
+
+			var width = $(item).width();
+
+			if (width > o.highResImagesWidthThreshold) {
+				// Set high res version images where needed
+
+				// Get all elements inside this item having a high-res-background-image-url data, including the item itself, if it has it also.
+				var itemsWithHighResData = $('[data-high-res-background-image-url]', item);
+
+				if ($(item).data('high-res-background-image-url'))
+					$(itemsWithHighResData).add(item);
+
+				$(itemsWithHighResData).each(function() {
+					var highResUrl = $(this).data('high-res-background-image-url');
+					$(this).css('background-image', 'url("' + highResUrl + '"');
+					$(this).addClass('highRes');
+				});
+
+
+				// Get all images inside this item having a high-res-image-url data, including the item itself, if it has it also.
+				var itemsWithHighResData = $('[data-high-res-image-src]', item);
+
+				if ($(item).data('high-res-image-src'))
+					$(itemsWithHighResData).add(item);
+
+				$(itemsWithHighResData).each(function() {
+					var highResUrl = $(this).data('high-res-image-src');
+					$(this).attr('src', highResUrl);
+					$(this).addClass('highRes');
+				});
+
+			}
 		}
 
 		base.calculateHeightToFit = function(items) {
@@ -196,6 +182,7 @@
 		}
 
 		base.isBelowResponsiveWidthThreshold = function() {
+			return false; // Debug
 			return o.responsiveWidthThreshold && baseWidth < o.responsiveWidthThreshold;
 		}
 
