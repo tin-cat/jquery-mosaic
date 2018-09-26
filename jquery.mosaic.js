@@ -139,28 +139,26 @@
 			if (width > o.highResImagesWidthThreshold) {
 				// Set high res version images where needed
 
-				// Get all elements inside this item having a high-res-background-image-url data, including the item itself, if it has it also.
+				// Get all elements inside this item having a high-res-background-image-url data, including the item itself, if it has it also
 				var itemsWithHighResData = $('[data-high-res-background-image-url]', item);
 
 				if ($(item).data('high-res-background-image-url'))
-					$(itemsWithHighResData).add(item);
+					itemsWithHighResData = $(itemsWithHighResData).add(item);
 
 				$(itemsWithHighResData).each(function() {
-					var highResUrl = $(this).data('high-res-background-image-url');
-					$(this).css('background-image', 'url("' + highResUrl + '"');
+					$(this).css('background-image', 'url("' + $(this).data('high-res-background-image-url') + '"');
 					$(this).addClass('highRes');
 				});
 
 
-				// Get all images inside this item having a high-res-image-url data, including the item itself, if it has it also.
+				// Get all images inside this item having a high-res-image-url data, including the item itself, if it has it also
 				var itemsWithHighResData = $('[data-high-res-image-src]', item);
 
 				if ($(item).data('high-res-image-src'))
-					$(itemsWithHighResData).add(item);
+					itemsWithHighResData = $(itemsWithHighResData).add(item);
 
 				$(itemsWithHighResData).each(function() {
-					var highResUrl = $(this).data('high-res-image-src');
-					$(this).attr('src', highResUrl);
+					$(this).attr('src', $(this).data('high-res-image-src'));
 					$(this).addClass('highRes');
 				});
 

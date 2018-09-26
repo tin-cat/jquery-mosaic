@@ -16,7 +16,7 @@
 				" height=\"".$file["height"]."\"".
 				" style=\"".
 					"background-color: ".sprintf("#%06X", mt_rand(0x000000, 0xFFFFFF)).";".
-					"background-image: url('".$highResImagesDir.$file["fileName"]."');".
+					"background-image: url('".$lowResImagesDir.$file["fileName"]."');".
 				"\"".
 				" data-high-res-background-image-url=\"".$highResImagesDir.$file["fileName"]."\"".
 			">".
