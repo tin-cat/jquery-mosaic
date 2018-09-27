@@ -180,7 +180,6 @@
 		}
 
 		base.isBelowResponsiveWidthThreshold = function() {
-			return false; // Debug
 			return o.responsiveWidthThreshold && baseWidth < o.responsiveWidthThreshold;
 		}
 

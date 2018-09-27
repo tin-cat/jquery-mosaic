@@ -2,10 +2,10 @@
 <head>
 	<title><?= $title ? $title : "jquery-mosaic plugin example" ?></title><!-- omitOnExampleSource -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="jquery.mosaic.css?v=6"/>
-	<script type="text/javascript" src="jquery.mosaic.js?v=6"></script>
-	<link rel="stylesheet" type="text/css" href="res/css/main.css?v=6"/><!-- omitOnExampleSource -->
-	<script type="text/javascript" src="res/js/main.js?v=6"></script><!-- omitOnExampleSource -->
+	<link rel="stylesheet" type="text/css" href="jquery.mosaic.css?v=7"/>
+	<script type="text/javascript" src="jquery.mosaic.js?v=7"></script>
+	<link rel="stylesheet" type="text/css" href="res/css/main.css?v=7"/><!-- omitOnExampleSource -->
+	<script type="text/javascript" src="res/js/main.js?v=7"></script><!-- omitOnExampleSource -->
 </head>
 <body>
 <div id="exampleContent"><!-- omitOnExampleSource -->
