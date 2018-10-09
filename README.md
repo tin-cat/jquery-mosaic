@@ -1,5 +1,5 @@
 # jquery-mosaic
-See documentation and working examples here http://jquery-mosaic.tin.cat
+See documentation and working examples on http://jquery-mosaic.tin.cat
 
 A jQuery plugin by Tin.cat that builds responsive mosaics of images or any other content fitted to match heights in multiple rows while maintaining aspect ratios.
 
