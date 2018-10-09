@@ -1,6 +1,6 @@
 {
   "name": "jquery-mosaic",
-  "version": "0.15.2",
+  "version": "0.15.3",
   "description": "A jQuery plugin by Tin.cat that builds responsive mosaics of images or any other content fitted to match heights in multiple rows while maintaining aspect ratios.",
   "main": "jquery.mosaic.js",
   "directories": {
