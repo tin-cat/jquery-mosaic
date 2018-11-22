@@ -41,6 +41,9 @@
 
 			if (o.refitOnResize)
 				$(window).on('resize', null, null, function() {
+				  if (base.$el.is(':hidden')) {
+						return;
+				  }
 					if (o.refitOnResizeDelay) {
 						if (refitTimeout)
 							clearTimeout(refitTimeout);
@@ -52,6 +55,10 @@
 						base.fit()
 				});
 		}
+
+		base.$el.on('jqMosaicRefit', function() {
+			base.fit();
+		});
 
 		base.getItems = function() {
 			return $('> div:not([data-no-mosaic=true]), > a:not([data-no-mosaic=true]), > img:not([data-no-mosaic=true])', base.el);
