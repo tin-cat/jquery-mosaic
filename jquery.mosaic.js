@@ -54,7 +54,7 @@
 		}
 
 		base.getItems = function() {
-			return $('> div:not([data-no-mosaic=true]), > a:not([data-no-mosaic=true]), > img:not([data-no-mosaic=true])', base.el);
+			return $('> div:not([data-no-mosaic=true]), > a:not([data-no-mosaic=true]), > img:not([data-no-mosaic=true]), > video:not([data-no-mosaic=true])', base.el);
 		}
 
 		base.getItemAtIndex = function(index) {
