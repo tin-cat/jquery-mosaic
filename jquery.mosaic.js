@@ -41,6 +41,8 @@
 
 			if (o.refitOnResize)
 				$(window).on('resize', null, null, function() {
+					if ($(base.el).is(':hidden'))
+						return;
 					if (o.refitOnResizeDelay) {
 						if (refitTimeout)
 							clearTimeout(refitTimeout);
