@@ -14,7 +14,8 @@
 
 .jQueryMosaic > div,
 .jQueryMosaic > a,
-.jQueryMosaic > img {
+.jQueryMosaic > img,
+.jQueryMosaic > video {
 	float: left;
 }
 
