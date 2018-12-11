@@ -1,5 +1,5 @@
 /*
-	 jQuery Mosaic v0.15.2
+	 jQuery Mosaic v0.15.3
 	 https://github.com/tin-cat/jquery-mosaic
  */
 
@@ -14,7 +14,8 @@
 
 .jQueryMosaic > div,
 .jQueryMosaic > a,
-.jQueryMosaic > img {
+.jQueryMosaic > img,
+.jQueryMosaic > video {
 	float: left;
 }
 
