@@ -27,6 +27,7 @@ cleancss -o jquery.mosaic.min.css jquery.mosaic.css
 
 ### Sites using jQuery Mosaic:
 * https://litmind.com
+* https://photocrew.ru
 * Add your own site here by editing editing this README and submitting a pull request!
 
 ### License
